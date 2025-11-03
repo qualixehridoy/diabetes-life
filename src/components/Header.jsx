@@ -5,18 +5,17 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full   z-50">
+    <header className="fixed top-0 left-0 w-full bg-secondary z-50">
       <nav className="max-w-[1200px] mx-auto flex  items-center justify-between px-6 py-3">
         {/* Logo */}
         <a href="#hero" className=" flex justify-center">
           <img src="/logo.png" alt="Diabetes Campaign Logo" className="h-12 w-auto" />
         </a>
 
-        <ul className="hidden md:flex gap-8 text-secondary font-medium">
-          <li><a href="#hero" className="hover:text-accent transition-colors">Home</a></li>
-          <li><a href="#spread" className="hover:text-accent transition-colors">Spread Awareness</a></li>
-          <li><a href="#videos" className="hover:text-accent transition-colors">Videos</a></li>
-          <li><a href="#contact" className="hover:text-accent transition-colors">Contact</a></li>
+        <ul className="hidden md:flex gap-8 text-primary font-medium">
+        <li><a href="#howitswork" className="hover:text-accent transition-colors">How It's Work</a></li>
+          <li><a href="#about" className="hover:text-accent transition-colors">About</a></li>
+          <li><a href="#gallary" className="hover:text-accent transition-colors">Gallary</a></li>
         </ul>
         
         <button
@@ -32,12 +31,11 @@ const Header = () => {
 
      
       {isOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-sm shadow-md">
-          <ul className="flex flex-col items-center gap-4 py-4 text-black font-medium">
-            <li><a onClick={() => setIsOpen(false)} href="#hero" className="hover:text-accent transition">Home</a></li>
-            <li><a onClick={() => setIsOpen(false)} href="#spread" className="hover:text-accent transition">Spread Awareness</a></li>
-            <li><a onClick={() => setIsOpen(false)} href="#videos" className="hover:text-accent transition">Videos</a></li>
-            <li><a onClick={() => setIsOpen(false)} href="#contact" className="hover:text-accent transition">Contact</a></li>
+        <div className="md:hidden bg-primary/95 backdrop-blur-sm shadow-md">
+          <ul className="flex flex-col items-start pl-4 gap-4 py-4 text-secondary  font-medium">
+            <li><a onClick={() => setIsOpen(false)} href="#howitswork" className="hover:text-accent transition">How It's Work</a></li>
+            <li><a onClick={() => setIsOpen(false)} href="#about" className="hover:text-accent transition">About</a></li>
+            <li><a onClick={() => setIsOpen(false)} href="#gallary" className="hover:text-accent transition">Gallary</a></li>
           </ul>
         </div>
       )}
