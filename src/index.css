@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@theme {
+  --color-primary:#001864;
+  --color-secondary: #F2F2F2;
+  --color-accent: #FF7F50;
+  --font-Hanken:"Hanken Grotesk", sans-serif;
+}
