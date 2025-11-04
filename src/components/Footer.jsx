@@ -44,7 +44,7 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-gradient-to-r from-blue-700 to-blue-900 text-white">
-      <div className="max-w-[900px] mx-auto px-6 py-12 flex flex-col md:flex-row justify-between gap-10">
+      <div className="max-w-[1000px] mx-auto px-6 py-12 flex flex-col md:flex-row justify-between gap-10">
         {/* === Brand Section === */}
         <div className="flex flex-col items-start space-y-3 text-left">
           <h2 className="text-2xl font-bold font-Hanken">Have Questions?</h2>
