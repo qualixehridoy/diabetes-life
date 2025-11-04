@@ -30,7 +30,7 @@ const HeroButton = ({ text = "Click Me", href = "#videos" }) => {
       />
 
       {/* Text + Icon */}
-      <span className="relative z-10 flex flex-row items-center gap-2 transition-all duration-300 group-hover:scale-[1.03]">
+      <span className="relative z-10 flex flex-row items-center gap-2 transition-all duration-300">
         {text}
         <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
       </span>

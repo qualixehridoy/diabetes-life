@@ -11,55 +11,88 @@ const HowItsWork = () => {
   return (
     <section
       id="howitswork"
-      className="py-20 sm:py-28 bg-gradient-to-r from-white to-blue-100 min-h-screen w-full"
+      className="
+        py-16 sm:py-20 md:py-28 
+        bg-gradient-to-r from-white to-blue-100 
+        w-full
+      "
     >
-      <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-12 px-5 md:px-8 lg:px-0">
+      <div
+        className="
+          max-w-[1200px] mx-auto 
+          flex flex-col md:flex-row items-center md:items-start justify-between 
+          gap-6 sm:gap-10 md:gap-16     /* Reduced gap on mobile */
+          px-4 sm:px-6 md:px-8 lg:px-0
+        "
+      >
         {/* === Left: Image === */}
         <div
-          className="flex-1 flex justify-center"
+          className="flex-1 flex justify-center md:justify-start"
           data-aos="fade-right"
           data-aos-duration="1000"
         >
           <img
             src="/howitsworkImage.png"
             alt="How DiaCare Works"
-            className="rounded-2xl w-full max-w-sm sm:max-w-md hover:scale-105 transition-transform duration-700 "
+            className="
+              rounded-2xl w-full max-w-xs sm:max-w-sm md:max-w-md 
+              hover:scale-105 transition-transform duration-700
+            "
           />
         </div>
 
         {/* === Right: Text Content === */}
         <div
-          className="flex-1 text-center md:text-left mt-8 md:mt-0"
+          className="
+            flex-1 text-left mt-6 sm:mt-8 md:mt-0   /* Reduced top margin on mobile */
+          "
           data-aos="fade-left"
           data-aos-delay="200"
           data-aos-duration="1000"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-Hanken text-black leading-tight mb-4">
+          <h2
+            className="
+              font-Hanken font-bold text-black leading-tight mb-4
+              text-[clamp(1.8rem,5vw,3.5rem)]
+            "
+          >
             Diabetes and{" "}
             <span className="bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-700 bg-clip-text text-transparent">
               wellbeing at work
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed font-Hanken text-gray-700">
+          <p
+            className="
+              text-sm sm:text-base md:text-lg 
+              mb-6 sm:mb-8 max-w-lg 
+              leading-relaxed font-Hanken text-gray-700
+            "
+          >
             If you have had a severe allergic reaction (anaphylaxis) or an
             immediate allergic reaction to any ingredient in the vaccine you are
             scheduled to receive, you should not get that vaccine.
           </p>
 
           {/* === Key Points === */}
-          <div className="space-y-5 sm:space-y-6 mt-4 sm:mt-6">
+          <div className="space-y-3 sm:space-y-5 mt-3 sm:mt-6">
             {texts.map((text, index) => (
               <div
                 key={index}
-                className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 bg-white rounded-2xl p-4 sm:p-5 shadow-sm transition-all duration-500 hover:-translate-y-1"
+                className="
+                  flex items-start gap-3 sm:gap-4 
+                  bg-white rounded-2xl 
+                  p-3 sm:p-4 md:p-5 
+                  shadow-sm transition-all duration-500 
+                  hover:-translate-y-1
+                "
                 data-aos="fade-up"
                 data-aos-delay={`${300 + index * 100}`}
               >
-                <div className="bg-primary text-white font-bold rounded-full w-9 h-9 flex items-center justify-center mx-auto sm:mx-0">
-                  <CircleCheckBig className="w-5 h-5" />
+                <div className="bg-primary text-white font-bold rounded-full w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center">
+                  <CircleCheckBig className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <p className="font-Hanken text-base sm:text-lg md:text-xl text-gray-800 text-center sm:text-left">
+                <p className="font-Hanken text-sm sm:text-base md:text-lg text-gray-800">
                   {text}
                 </p>
               </div>
@@ -67,7 +100,7 @@ const HowItsWork = () => {
           </div>
 
           {/* === CTA Button === */}
-          <div className="mt-10 flex justify-center md:justify-start text-sm md:text-[16px]">
+          <div className="mt-8 sm:mt-10 flex justify-start text-sm md:text-[16px]">
             <HeroButton text="Is your workplace Diabetic Friendly?" />
           </div>
         </div>
