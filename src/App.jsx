@@ -1,4 +1,5 @@
 import './App.css'
+import Footer from './components/Footer'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import HowItsWork from './components/HowItsWork'
@@ -15,6 +16,7 @@ function App() {
     <HowItsWork />
     <SpreadSection />
     <VideoGallery />
+    <Footer />
 
     </>
   )

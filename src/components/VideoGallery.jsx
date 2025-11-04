@@ -1,31 +1,27 @@
 import { useRef, useState } from "react";
-import { Play, Pause, ExternalLink } from "lucide-react";
+import { Play, Pause } from "lucide-react";
 
 export default function VideoGallery() {
   const videos = [
     {
       id: 1,
-      title: "Living Well with Diabetes",
-      src: "https://www.w3schools.com/html/mov_bbb.mp4",
-      url: "https://example.com/video1",
+      title: "Doctor Consulting a Patient",
+      src: "https://cdn.pixabay.com/video/2020/09/13/49815-458438877_large.mp4",
     },
     {
       id: 2,
-      title: "Healthy Eating Tips",
-      src: "https://www.w3schools.com/html/movie.mp4",
-      url: "https://example.com/video2",
+      title: "Healthy Food for Wellness",
+      src: "https://cdn.pixabay.com/video/2019/11/26/29488-375947200_large.mp4",
     },
     {
       id: 3,
-      title: "Managing Stress Effectively",
-      src: "https://www.w3schools.com/html/mov_bbb.mp4",
-      url: "https://example.com/video3",
+      title: "Healthcare Team Collaboration",
+      src: "https://cdn.pixabay.com/video/2016/02/29/2340-157269921_large.mp4",
     },
     {
       id: 4,
-      title: "Physical Activity and Diabetes",
-      src: "https://www.w3schools.com/html/movie.mp4",
-      url: "https://example.com/video4",
+      title: "Fitness and Active Lifestyle",
+      src: "https://cdn.pixabay.com/video/2022/06/18/120679-721759754_large.mp4",
     },
   ];
 
@@ -33,72 +29,85 @@ export default function VideoGallery() {
   const videoRefs = useRef({});
 
   const togglePlay = (id) => {
-    const video = videoRefs.current[id];
-    if (!video) return;
+    const currentVideo = videoRefs.current[id];
+    if (!currentVideo) return;
 
-    if (video.paused) {
-      video.play();
+    // Pause all other videos
+    Object.keys(videoRefs.current).forEach((key) => {
+      const vid = videoRefs.current[key];
+      if (vid && key !== String(id)) {
+        vid.pause();
+        setPlaying((prev) => ({ ...prev, [key]: false }));
+      }
+    });
+
+    // Play or pause the selected one
+    if (currentVideo.paused) {
+      currentVideo.play();
       setPlaying((prev) => ({ ...prev, [id]: true }));
     } else {
-      video.pause();
+      currentVideo.pause();
       setPlaying((prev) => ({ ...prev, [id]: false }));
     }
   };
 
   return (
-    <section className="w-full bg-gradient-to-b from-blue-50 to-blue-100 py-16 px-4 sm:px-6 lg:px-12">
-      <div className="max-w-[1200px] mx-auto text-center space-y-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-primary">
-          🎥 Explore Our Awareness Video Gallery
-        </h2>
-        <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-          Learn more about diabetes care, healthy living, and mental well-being
-          through these short videos.
-        </p>
+    <section className="w-full bg-gradient-to-b from-blue-50 via-blue-100 to-white py-20 px-4 sm:px-6 lg:px-12">
+      <div className="max-w-[1200px] mx-auto text-center space-y-10">
+        {/* Heading */}
+        <div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-blue-900 font-Hanken leading-tight">
+            Explore Our{" "}
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
+              Medical Video Gallery
+            </span>
+          </h2>
+          <p className="mt-5 text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            Discover inspiring medical stories, wellness tips, and preventive
+            health practices through these short videos.
+          </p>
+        </div>
 
         {/* Video Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-12">
           {videos.map((video) => (
             <div
               key={video.id}
-              className="relative bg-white rounded-2xl shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="relative group rounded-2xl overflow-hidden bg-white border border-blue-100 shadow-sm hover:shadow-md transition-all duration-500"
             >
-              {/* Video Container */}
-              <div className="relative group">
+              {/* Video */}
+              <div className="relative aspect-video overflow-hidden">
                 <video
                   ref={(el) => (videoRefs.current[video.id] = el)}
                   src={video.src}
-                  className="w-full h-60 object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   preload="metadata"
+                  playsInline
                 ></video>
 
-                {/* Overlay Play Button */}
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-70 transition-opacity duration-500"></div>
+
+                {/* Play/Pause Button */}
                 <button
                   onClick={() => togglePlay(video.id)}
-                  className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 flex items-center justify-center"
                 >
-                  {playing[video.id] ? (
-                    <Pause className="text-white w-12 h-12" />
-                  ) : (
-                    <Play className="text-white w-12 h-12" />
-                  )}
+                  <div className="bg-primary/60 backdrop-blur-md rounded-full p-4 sm:p-5 transition-transform duration-300 hover:scale-110 shadow-sm">
+                    {playing[video.id] ? (
+                      <Pause className="text-white w-8 h-8 sm:w-9 sm:h-9" />
+                    ) : (
+                      <Play className="text-white w-8 h-8 sm:w-9 sm:h-9" />
+                    )}
+                  </div>
                 </button>
               </div>
 
-              {/* Video Info */}
-              <div className="p-5 text-left">
-                <h3 className="text-xl font-semibold text-blue-800 mb-3">
+              {/* Title */}
+              <div className="p-4 text-left">
+                <h3 className="text-[20px] font-semibold text-blue-800 truncate">
                   {video.title}
                 </h3>
-                <a
-                  href={video.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full font-medium text-sm transition-all duration-300"
-                >
-                  <ExternalLink size={16} />
-                  Watch More
-                </a>
               </div>
             </div>
           ))}

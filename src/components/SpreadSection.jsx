@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useTransition } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import HeroButton from "./Button";
 
 export default function SpreadSection() {
   useEffect(() => {
@@ -34,52 +35,59 @@ export default function SpreadSection() {
 
   return (
     <section
-      id="about"
-      className="w-full bg-gradient-to-b from-blue-50 to-blue-100 py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-10 flex justify-center"
+      id="spread"
+      className="w-full bg-gradient-to-b from-blue-50 to-blue-100 py-20 sm:py-24 md:py-28 px-4 sm:px-6 md:px-10 flex justify-center"
     >
       <div className="max-w-[1200px] w-full flex flex-col items-center text-center space-y-10 sm:space-y-12">
-        {/* Heading */}
-        <h1
-          data-aos="fade-up"
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800 leading-tight"
-        >
-          Spread the Word About{" "}
-          <span className="text-blue-600">Diabetes in November</span>
-        </h1>
+        
+        {/* === Heading Section === */}
+        <div data-aos="fade-up" className="space-y-4">
+          <h1 className="text-4xl sm:text-5xl md:text-[60px] font-extrabold font-Hanken leading-tight text-gray-900">
+            Spread the word about{" "} 
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent animate-gradient-x">
+              Diabetes 
+            </span>{" "}
+            in November
+          </h1>
 
-        {/* Subheading */}
-        <p
-          data-aos="fade-up"
-          data-aos-delay="150"
-          className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl leading-relaxed"
-        >
-          November is <strong>Diabetes Awareness Month</strong>. Help raise
-          awareness about the physical and mental challenges of diabetes.
-          Together, let’s create healthier, more compassionate workplaces —
-          because awareness can save lives.
-        </p>
+          <p
+            data-aos="fade-up"
+            data-aos-delay="150"
+            className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed"
+          >
+            November is <strong>Diabetes Awareness Month</strong> — a time to
+            inspire action, understanding, and compassion. Let’s work together
+            to make our workplaces healthier and more supportive for everyone.
+          </p>
+        </div>
 
-        {/* Section Title */}
+        {/* === Section Title === */}
         <h2
           data-aos="fade-up"
           data-aos-delay="250"
-          className="text-2xl sm:text-3xl md:text-4xl font-semibold text-blue-800 mt-4"
+          className="text-2xl sm:text-3xl md:text-4xl font-semibold text-blue-800 mt-4 font-Hanken"
         >
-          10 Ways to Do More for Diabetes at Work
+          10 Ways to Support Diabetes Awareness at Work
         </h2>
 
-        {/* Two Column Layout */}
-        <div className="mt-10 w-full">
-          <div className="border border-blue-100 shadow-xl rounded-3xl p-6 sm:p-8 md:p-10 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 md:gap-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-            {facts.map((fact, index) => (
+        {/* === Two-Column Facts Layout === */}
+        <div
+          className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 w-full"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          {/* Left Column: 1–5 */}
+          <div className="space-y-5">
+            {facts.slice(0, 5).map((fact, index) => (
               <div
                 key={index}
-                data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-                data-aos-delay={100 + index * 100}
-                className="flex items-start sm:items-center gap-4 sm:gap-5 bg-white rounded-2xl p-4 sm:p-5 shadow-sm transition-all duration-300 hover:shadow-md"
+                data-aos="fade-right"
+                data-aos-delay={index * 100}
+                className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1"
+                
               >
                 <div
-                  className="font-bold rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-lg sm:text-xl shadow-md shrink-0"
+                  className="font-bold rounded-full w-12 h-12 flex items-center justify-center text-lg shadow-sm shrink-0"
                   style={{
                     backgroundColor: colorVars[index % colorVars.length],
                     color: "var(--color-secondary)",
@@ -93,13 +101,37 @@ export default function SpreadSection() {
               </div>
             ))}
           </div>
+
+          {/* Right Column: 6–10 */}
+          <div className="space-y-5">
+            {facts.slice(5).map((fact, index) => (
+              <div
+                key={index + 5}
+                data-aos="fade-left"
+                data-aos-delay={index * 100}
+                className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1"
+              >
+                <div
+                  className="font-bold rounded-full w-12 h-12 flex items-center justify-center text-lg shadow-sm shrink-0"
+                  style={{
+                    backgroundColor:
+                      colorVars[(index + 5) % colorVars.length],
+                    color: "var(--color-secondary)",
+                  }}
+                >
+                  {index + 6}
+                </div>
+                <p className="text-gray-700 text-base sm:text-lg font-medium leading-relaxed text-left">
+                  {fact}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Call-to-Action Button */}
-        <div data-aos="fade-up" data-aos-delay="700" className="mt-12 sm:mt-16">
-          <button className="bg-primary hover:bg-blue-700 text-white font-semibold text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 focus:ring-4 focus:ring-blue-300">
-            Join the Movement
-          </button>
+        {/* === Call-to-Action Button === */}
+        <div data-aos="zoom-in" data-aos-delay="600" className="mt-16">
+          <HeroButton text="Join Our Movement" />
         </div>
       </div>
     </section>
