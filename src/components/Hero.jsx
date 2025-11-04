@@ -15,20 +15,20 @@ const Hero = () => {
       />
 
       {/* Overlay for readability */}
-      <div className="absolute inset-0 backdrop-blur-sm shadow-sm"></div>
+      <div className="absolute inset-0 backdrop-blur-sm shadow-sm bg-black/30 "></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1200px] px-8 lg:px-46 text-left text-white pt-[100px]">
-        <h1 className="text-5xl md:text-6xl font-Hanken font-bold mb-4 drop-shadow-lg max-w-3xl">
+      <div className="w-full max-w-[1200px] relative z-10 mx-auto px-4 pt-24 text-left text-white">
+        <h1 className=" text-4xl md:text-6xl font-Hanken font-bold mb-4 drop-shadow-lg max-w-3xl">
           Know more and do more
 for diabetes at work
         </h1>
-        <p className="text-lg md:text-xl mb-6 max-w-lg leading-relaxed text-gray-100 mt-[30px] font-Hanken">
+        <p className="text-lg md:text-xl mb-6 max-w-lg leading-relaxed text-gray-100 pt-[30px] font-Hanken">
           Join our movement to raise awareness and promote a healthier future for everyone.
         </p>
         <a
           href="#videos"
-          className="inline-block bg-primary hover:bg-orange-600 text-white font-semibold px-[30px] py-5 rounded-[10px] shadow-lg transition-all duration-300 mt-[50px]"
+          className="inline-block bg-primary hover:bg-orange-600 text-white font-semibold px-[30px] py-5 rounded-[10px] shadow-lg transition-all duration-300 lg:mt-[50px]"
         >
           Are In Diabetes Risk?
         </a>

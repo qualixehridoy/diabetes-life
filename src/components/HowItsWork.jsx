@@ -1,10 +1,12 @@
+import { CircleCheckBig } from 'lucide-react';
+
 const HowItsWork = () => {
   return (
     <section
       id="howitswork"
-      className="py-20 px-6 bg-linear-to-r from-white to-blue-100 min-h-screen "
+      className="py-30  bg-linear-to-r from-white to-blue-100 min-h-screen w-full"
     >
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 pt-20">
+      <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center gap-12 pt-20 px-4 md:px-0">
         {/* Left: Image */}
         <div
           className="flex-1 flex justify-center"
@@ -35,25 +37,25 @@ const HowItsWork = () => {
           {/* Steps */}
           <div className="space-y-10 mt-6">
             <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="300">
-              <div className="bg-green-300 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center">1</div>
-              <p className="font-Hanken">7 in 10 people living with diabetes are of working age.</p>
+              <div className="bg-green-300 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center"><CircleCheckBig /></div>
+              <p className="font-Hanken text-xl">7 in 10 people living with diabetes are of working age.</p>
             </div>
 
             <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="400">
-              <div className="bg-purple-300 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center">2</div>
-              <p className="font-Hanken">3 in 4 people living with diabetes have depression</p>
+             <div className="bg-green-300 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center"><CircleCheckBig /></div>
+              <p className="font-Hanken text-xl">3 in 4 people living with diabetes have depression</p>
             </div>
 
             <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="500">
-              <div className="bg-amber-300 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center">3</div>
-              <p className="font-Hanken">4 in 5 people living with diabetes experienced burnout.</p>
+              <div className="bg-green-300 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center"><CircleCheckBig /></div>
+              <p className="font-Hanken text-xl">4 in 5 people living with diabetes experienced burnout.</p>
             </div>
           </div>
 
           {/* Button */}
           <a
             href="#gallery"
-            className="inline-block mt-8 bg-primary hover:bg-red-600 text-white text:md lg:text-xl px-10 py-4 lg:px-16 lg:py-6 rounded-md font-semibold shadow-lg transition-all duration-300"
+            className="inline-block mt-8 bg-primary hover:bg-accent text-white text:[18px] lg:text-xl px-10 py-4 lg:px-[30px] lg:py-4 rounded-[30px] font-semibold shadow-lg transition-all duration-400"
             data-aos="zoom-in"
             data-aos-delay="600"
           >
