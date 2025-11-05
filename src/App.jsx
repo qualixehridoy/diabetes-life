@@ -1,10 +1,13 @@
 import './App.css'
+import { lazy, Suspense } from 'react'
+import LoadingSpinner from './components/LoadingSpinner'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import HowItsWork from './components/HowItsWork'
-import SpreadSection from './components/SpreadSection'
-import VideoGallery from './components/VideoGallery'
+
+const HowItsWork = lazy(() => import('./components/HowItsWork'))
+const SpreadSection = lazy(() => import('./components/SpreadSection'))
+const VideoGallery = lazy(() => import('./components/VideoGallery'))
 
 function App() {
 
@@ -13,9 +16,11 @@ function App() {
     <>
     <Header />
     <Hero />
-    <HowItsWork />
-    <SpreadSection />
-    <VideoGallery />
+    <Suspense fallback={<LoadingSpinner />}>
+      <HowItsWork />
+      <SpreadSection />
+      <VideoGallery />
+    </Suspense>
     <Footer />
 
     </>

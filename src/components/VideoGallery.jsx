@@ -7,21 +7,25 @@ export default function VideoGallery() {
       id: 1,
       title: "Doctor Consulting a Patient",
       src: "/GalleryVideo1.mp4",
+      poster:"/GalleryVideo1Fallback.jpg"
     },
     {
       id: 2,
       title: "Healthy Food for Wellness",
       src: "/GalleryVideo2.mp4",
+      poster:"/GalleryVideo2Fallback.jpg"
     },
     {
       id: 3,
       title: "Healthcare Team Collaboration",
       src: "/GalleryVideo3.mp4",
+      poster:"/GalleryVideo3Fallback.jpg"
     },
     {
       id: 4,
       title: "Fitness and Active Lifestyle",
       src: "/GalleryVideo4.mp4",
+      poster:"/GalleryVideo4Fallback.jpg"
     },
   ];
 
@@ -73,6 +77,8 @@ export default function VideoGallery() {
                   preload="metadata"
                   muted
                   playsInline
+                  loading="lazy"
+                  poster={video.poster}
                 ></video>
 
                 {/* Overlay */}

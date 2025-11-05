@@ -15,6 +15,8 @@ const Hero = () => {
         loop
         muted
         playsInline
+        loading="lazy"
+        poster="/HeroBgFallback.jpg"
       />
 
       {/* Overlay for readability */}

@@ -1,0 +1,15 @@
+import React from 'react';
+
+const LoadingSpinner = () => {
+  return (
+    <div className="flex items-center justify-center h-screen w-full bg-gray-50">
+      <div className="flex space-x-2">
+        <div className="w-4 h-4 bg-blue-500 rounded-full animate-bounce-slow"></div>
+        <div className="w-4 h-4 bg-blue-500 rounded-full animate-bounce-medium"></div>
+        <div className="w-4 h-4 bg-blue-500 rounded-full animate-bounce-fast"></div>
+      </div>
+    </div>
+  );
+};
+
+export default LoadingSpinner;
