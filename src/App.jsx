@@ -6,6 +6,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 
 import './index.css'
+import ThemeColorPicker from './components/themecolorpicker'
 
 const HowItsWork = lazy(() => import('./components/HowItsWork'))
 const SpreadSection = lazy(() => import('./components/SpreadSection'))
@@ -27,7 +28,8 @@ function App() {
       <Suspense fallback={<LoadingSpinner />}>
         <VideoGallery />
       </Suspense>
-      <Footer />
+      <ThemeColorPicker />
+      
 
     </>
   )

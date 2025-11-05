@@ -1,3 +1,5 @@
+
+
 @import "tailwindcss";
 
 @keyframes bounce-slow {
@@ -52,26 +54,42 @@
   font-style: normal;
   font-display: swap;
 }
+
+
 @font-face {
-  font-family: 'Lato';
-  src: url(./assets/fonts/Lato-Bold.ttf)format('truetype');
-  font-weight: 700;
+  font-family: 'Apis';
+  src: url('./assets/fonts/Apis-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
   font-display: swap;
 }
+
 @font-face {
-  font-family: 'Lato';
-  src: url(./assets/fonts/Lato-Black.ttf)format('truetype');
+  font-family: 'Apis';
+  src: url('./assets/fonts/Apis-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Apis';
+  src: url('./assets/fonts/Apis-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
   font-display: swap;
 }
 body{
-  font-family: 'Lato';
+  font-family: 'Apis';
 }
 
 @theme {
-  --color-primary:#001864;
+  --color-primary:#081965;
   --color-secondary: #F2F2F2;
-  --color-accent: #FF7F50;
-  --font-Hanken:"Lato", sans-serif;
+  --color-accent: #30918b;
+  --color-background:#e5e7ef;
+
+  --font-myfont: "Apis", sans-serif;
   --color-one:#6eeba1;
   --color-two:#cbbdf8;
   --color-three:#fed756;

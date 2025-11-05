@@ -16,11 +16,11 @@ const HeroButton = ({ text = "Click Me", href = "#videos" }) => {
     <a
       href={href}
       onMouseMove={handleMouseMove}
-      className="relative inline-flex items-center justify-center px-8 py-4 font-semibold text-white  rounded-[30px] cursor-pointer overflow-hidden group bg-primary transition-colors duration-300"
+      className="capitalize font-myfont relative inline-flex items-center justify-center px-8 py-4 font-semibold text-white  rounded-[30px] cursor-pointer overflow-hidden group bg-primary transition-colors duration-300"
     >
       {/* Animated fill circle */}
       <span
-        className="absolute w-0 h-0 rounded-full bg-[#FF7F50] transition-all duration-1000 ease-out group-hover:w-[1000px] group-hover:h-[1000px]"
+        className="absolute w-0 h-0 rounded-full bg-accent transition-all duration-1000 ease-out group-hover:w-[1000px] group-hover:h-[1000px]"
         style={{
           left: `${coords.x}px`,
           top: `${coords.y}px`,

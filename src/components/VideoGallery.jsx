@@ -1,38 +1,19 @@
 import { useRef, useState } from "react";
 import { Play, X } from "lucide-react";
+import HeroButton from "./Button";
 
 export default function VideoGallery() {
-  const videos = [
-    {
-      id: 1,
-      title: "Doctor Consulting a Patient",
-      src: "/GalleryVideo1.mp4",
-      poster: "/GalleryVideo1Fallback.avif",
-    },
-    {
-      id: 2,
-      title: "Healthy Food for Wellness",
-      src: "/GalleryVideo2.mp4",
-      poster: "/GalleryVideo2Fallback.avif",
-    },
-    {
-      id: 3,
-      title: "Healthcare Team Collaboration",
-      src: "/GalleryVideo3.mp4",
-      poster: "/GalleryVideo3Fallback.avif",
-    },
-    {
-      id: 4,
-      title: "Fitness and Active Lifestyle",
-      src: "/GalleryVideo4.mp4",
-      poster: "/GalleryVideo4Fallback.avif",
-    },
-  ];
+  const video = {
+    id: 1,
+    title: "Doctor Consulting a Patient",
+    src: "/GalleryVideo1.mp4",
+    poster: "/GalleryVideo1Fallback.avif",
+  };
 
   const [selectedVideo, setSelectedVideo] = useState(null);
   const modalVideoRef = useRef(null);
 
-  const openModal = (video) => {
+  const openModal = () => {
     setSelectedVideo(video);
     setTimeout(() => modalVideoRef.current?.play(), 200);
   };
@@ -44,64 +25,52 @@ export default function VideoGallery() {
 
   return (
     <section className="w-full bg-white py-20 px-4 sm:px-6 lg:px-12">
-      <div className="max-w-[1200px] mx-auto text-center space-y-12">
+      <div className="max-w-[1000px] mx-auto text-center space-y-12">
         {/* Heading */}
         <div className="space-y-5">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-blue-900 font-Hanken leading-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-black font-Hanken leading-tight">
             Explore Our{" "}
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-accent bg-clip-text text-transparent">
               Medical Video Gallery
             </span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Discover inspiring medical stories, wellness tips, and preventive
-            health practices through our curated video collection.
+            health practices through our curated video.
           </p>
         </div>
 
-        {/* Video Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 mt-10">
-          {videos.map((video) => (
-            <div
-              key={video.id}
-              onClick={() => openModal(video)}
-              className="group relative rounded-3xl overflow-hidden bg-white border border-gray-100 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer"
-            >
-              {/* Video Thumbnail */}
-              <div className="relative aspect-video overflow-hidden">
-                <video
-                  src={video.src}
-                  poster={video.poster}
-                  muted
-                  playsInline
-                  preload="metadata"
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                ></video>
+        {/* Single Large Video Card */}
+        <div
+          onClick={openModal}
+          className="group relative mx-auto w-full max-w-4xl rounded-3xl overflow-hidden bg-white border border-gray-100 shadow-lg hover:shadow-2xl cursor-pointer transition-all duration-500"
+        >
+          {/* Video Thumbnail */}
+          <div className="relative aspect-video overflow-hidden">
+            <video
+              src={video.src}
+              poster={video.poster}
+              playsInline
+              preload="metadata"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            ></video>
 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-50 group-hover:opacity-60 transition-opacity duration-500"></div>
+            {/* Overlay Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
 
-                {/* Play Button */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-blue-600/70 backdrop-blur-md rounded-full p-4 sm:p-5 transition-all duration-300 hover:scale-110 shadow-lg">
-                    <Play className="text-white w-8 h-8 sm:w-9 sm:h-9" />
-                  </div>
-                </div>
-
-                {/* Beautiful Title Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-5 py-4">
-                  <h3 className="text-white text-xl font-semibold tracking-tight drop-shadow-md transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
-                    {video.title}
-                  </h3>
-                </div>
+            {/* Play Button */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="bg-primary/40 backdrop-blur-md rounded-full p-6 sm:p-8 transition-transform duration-300 hover:scale-110 shadow-xl">
+                <Play className="text-white w-10 h-10 sm:w-12 sm:h-12" />
               </div>
             </div>
-          ))}
+
+
+          </div>
         </div>
       </div>
 
-      {/* Video Modal */}
+      {/* Modal */}
       {selectedVideo && (
         <div
           onClick={closeModal}
@@ -124,12 +93,18 @@ export default function VideoGallery() {
               ref={modalVideoRef}
               src={selectedVideo.src}
               controls
+              muted={false}
               autoPlay
               className="w-full h-full object-contain"
             />
           </div>
         </div>
       )}
+
+      {/* Button */}
+      <div className="max-w-[1000px] mx-auto pt-12 text-center text-sm">
+        <HeroButton text="Learn More" className="mx-auto" />
+      </div>
     </section>
   );
 }

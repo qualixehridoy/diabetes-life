@@ -32,10 +32,10 @@ const HowItsWork = () => {
           data-aos-duration="1000"
         >
           <img
-            src="/howitsworkImage.avif"
+            src="/Hero-Image.webp"
             alt="How DiaCare Works"
             className="
-              rounded-2xl w-full max-w-xs sm:max-w-sm md:max-w-md 
+              rounded-2xl w-full max-w-md  md:max-w-3xl
               hover:scale-105 transition-transform duration-700
             "
           />
@@ -52,12 +52,12 @@ const HowItsWork = () => {
         >
           <h2
             className="
-              font-Hanken font-bold text-black leading-tight mb-4 
+             capitalize font-Apis font-bold text-black leading-tight mb-4 
               text-[clamp(2.5rem,5vw,3.5rem)]
             "
           >
             Diabetes and{" "}
-            <span className="bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-700 bg-clip-text text-transparent">
+            <span className="bg-accent bg-clip-text text-transparent">
               wellbeing at work
             </span>
           </h2>
@@ -66,7 +66,7 @@ const HowItsWork = () => {
             className="
               text-sm sm:text-base md:text-lg 
               mb-6 sm:mb-8 max-w-lg 
-              leading-relaxed font-Hanken font-light text-gray-900
+              leading-relaxed font-Apis font-light text-gray-900
             "
           >
             If you have had a severe allergic reaction (anaphylaxis) or an
@@ -75,16 +75,16 @@ const HowItsWork = () => {
           </p>
 
           {/* === Key Points === */}
-          <div className="space-y-3 sm:space-y-5 mt-3 sm:mt-6">
+          <div className="space-y-3 sm:space-y-2 mt-3 sm:mt-6">
             {texts.map((text, index) => (
               <div
                 key={index}
                 className="
-                  flex items-center gap-3 sm:gap-4 
+                  flex items-center gap-2 sm:gap-1 
                   bg-white rounded-2xl 
-                  p-3 sm:p-4 md:p-5 
-                  shadow-sm transition-all duration-500 
-                  hover:-translate-y-1
+                  p-3 sm:p-4 md:p-2 
+              
+                 
                 "
                 data-aos="fade-up"
                 data-aos-delay={`${300 + index * 100}`}
@@ -92,7 +92,7 @@ const HowItsWork = () => {
                 <div className=" text-primary rounded-full w-8 h-8 sm:w-9 sm:h-9 md:w-9 md:h-9 flex items-center justify-center">
                   <CircleCheckBig className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <p className="font-Hanken text-sm sm:text-base md:text-lg text-gray-800">
+                <p className="font-Apis text-sm sm:text-base md:text-lg text-gray-800">
                   {text}
                 </p>
               </div>

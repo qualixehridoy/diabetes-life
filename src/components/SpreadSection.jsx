@@ -36,15 +36,15 @@ export default function SpreadSection() {
   return (
     <section
       id="spread"
-      className="w-full bg-linear-to-l from-blue-50 to-blue-100 py-10 sm:py-24 md:py-28 px-2 sm:px-6 md:px-10 flex justify-center"
+      className="w-full bg-background py-10 sm:py-24 md:py-28 px-2 sm:px-6 md:px-10 flex justify-center"
     >
-      <div className="max-w-[1200px] w-full flex flex-col items-center text-center sm:space-y-12">
+      <div className="max-w-[1200px] w-full flex flex-col items-center text-center sm:space-y-6">
         
         {/* === Heading Section === */}
         <div data-aos="fade-up" className="space-y-4">
           <h1 className="text-4xl sm:text-5xl md:text-[60px] font-extrabold font-Hanken leading-tight text-gray-900">
             Spread the word about{" "}
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent animate-gradient-x">
+            <span className="bg-accent bg-clip-text text-transparent animate-gradient-x">
               Diabetes
             </span>{" "}
             in November
@@ -65,7 +65,7 @@ export default function SpreadSection() {
         <h2
           data-aos="fade-up"
           data-aos-delay="250"
-          className="text-2xl sm:text-3xl md:text-4xl font-semibold text-blue-800 mt-4 font-Hanken"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mt-10 font-Hanken"
         >
           10 Ways to Support Diabetes Awareness at Work
         </h2>
@@ -83,7 +83,7 @@ export default function SpreadSection() {
                 key={index}
                 data-aos="fade-right"
                 data-aos-delay={index * 100}
-                className="flex items-center justify-start gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-500 min-h-[90px] sm:min-h-[100px]"
+                className="flex items-center justify-start gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-500 min-h-[100px] sm:min-h-[100px]"
               >
                 <div
                   className="font-bold rounded-full w-10 h-10 flex items-center justify-center text-base shadow-sm shrink-0"
@@ -108,7 +108,7 @@ export default function SpreadSection() {
                 key={index + 5}
                 data-aos="fade-left"
                 data-aos-delay={index * 100}
-                className="flex items-center justify-start gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-500 min-h-[90px] sm:min-h-[100px]"
+                className="flex items-center justify-start gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-500 min-h-[100px] sm:min-h-[100px]"
               >
                 <div
                   className="font-bold rounded-full w-10 h-10 flex items-center justify-center text-base shadow-sm shrink-0"
@@ -129,7 +129,7 @@ export default function SpreadSection() {
         </div>
 
         {/* === Call-to-Action Button === */}
-        <div data-aos="zoom-in" data-aos-delay="600" className="mt-14">
+        <div data-aos="zoom-in" data-aos-delay="600" className="mt-14 text-sm lg:text-[16px]">
           <HeroButton text="Join Our Movement" />
         </div>
       </div>

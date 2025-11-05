@@ -1,51 +1,68 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react"; // lightweight icon lib (auto installed via shadcn/ui or lucide-react)
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Header() {
+  const [alignment, setAlignment] = useState("left"); // 'left' | 'center' | 'right'
+
+  const alignmentClasses = {
+    left: "justify-start",
+    center: "justify-center",
+    right: "justify-end",
+  };
 
   return (
-    <header className="absolute top-0 left-0 w-full bg-white/20 z-50">
-      <nav className="max-w-[1200px] mx-auto flex  items-center justify-between px-6 py-3">
-        {/* Logo */}
-        <a href="#hero" className=" flex justify-center">
+    <header className="absolute top-0 left-0 w-full z-50">
+      {/*============= Header content ================*/}
+      <nav
+        className={`max-w-[1200px] mx-auto flex items-center gap-5 px-6 py-4 transition-all duration-500 ${alignmentClasses[alignment]}`}
+      >
+        {/* ================Logos================ */}
+        <a href="/" className="flex items-center gap-3">
           <img
             src="/logo.png"
-            alt="Diabetes Campaign Logo"
-            className="h-12 w-auto"
-            style={{ filter: 'brightness(0) invert(1)' }}
+            alt="Main company logo"
+            className="h-14 w-auto object-contain"
+          />
+          <img
+            src="/logo2.png"
+            alt="Secondary brand logo"
+            className="h-16 w-auto object-contain sm:block"
           />
         </a>
-
-        <ul className="hidden md:flex gap-8 text-white font-medium">
-          <li><a href="#howitswork" className="hover:text-accent transition-colors">How It's Work</a></li>
-          <li><a href="#about" className="hover:text-accent transition-colors">About</a></li>
-          <li><a href="#gallary" className="hover:text-accent transition-colors">Gallary</a></li>
-        </ul>
-
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white hover:text-accent transition-colors"
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-
-
       </nav>
 
-
-
-      {isOpen && (
-        <div className="md:hidden bg-primary/95 backdrop-blur-sm shadow-md">
-          <ul className="flex flex-col items-start pl-4 gap-4 py-4 text-secondary  font-medium">
-            <li><a onClick={() => setIsOpen(false)} href="#howitswork" className="hover:text-accent transition">How It's Work</a></li>
-            <li><a onClick={() => setIsOpen(false)} href="#about" className="hover:text-accent transition">About</a></li>
-            <li><a onClick={() => setIsOpen(false)} href="#gallary" className="hover:text-accent transition">Gallary</a></li>
-          </ul>
-        </div>
-      )}
+      {/*================ Controls (positioned below or top-right corner) =========================*/}
+      <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col sm:flex-row gap-2 sm:gap-3">
+        <button
+          onClick={() => setAlignment("center")}
+          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 border ${
+            alignment === "center"
+              ? "bg-blue-600 text-white border-blue-600 shadow-md"
+              : "bg-white/80 text-gray-700 border-gray-300 hover:bg-blue-50"
+          }`}
+        >
+          Style 1
+        </button>
+        <button
+          onClick={() => setAlignment("left")}
+          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 border ${
+            alignment === "left"
+              ? "bg-blue-600 text-white border-blue-600 shadow-md"
+              : "bg-white/80 text-gray-700 border-gray-300 hover:bg-blue-50"
+          }`}
+        >
+          Style 2
+        </button>
+        <button
+          onClick={() => setAlignment("right")}
+          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 border ${
+            alignment === "right"
+              ? "bg-blue-600 text-white border-blue-600 shadow-md"
+              : "bg-white/80 text-gray-700 border-gray-300 hover:bg-blue-50"
+          }`}
+        >
+          Style 3
+        </button>
+      </div>
     </header>
   );
-};
-
-export default Header;
+}
