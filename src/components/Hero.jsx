@@ -13,7 +13,7 @@ const Hero = () => {
       className="relative w-full h-screen flex items-center justify-start overflow-hidden"
     >
       {/* Background Video */}
-      {isDesktop ? (
+      
         <video
           className="absolute inset-0 w-full h-full object-cover"
           src="/HeroBG.mp4"
@@ -24,13 +24,7 @@ const Hero = () => {
           loading="lazy"
           poster="/HeroBgFallback.jpg"
         />
-      ) : (
-        <img
-          src="/HeroBgFallback.jpg"
-          className="absolute inset-0 w-full h-full object-cover"
-          alt="Background"
-        />
-      )}
+   
 
       {/* Overlay for readability */}
       <div className="absolute inset-0 backdrop-blur-sm bg-black/20"></div>
