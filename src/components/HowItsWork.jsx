@@ -32,7 +32,7 @@ const HowItsWork = () => {
           data-aos-duration="1000"
         >
           <img
-            src="/howitsworkImage.png"
+            src="/howitsworkImage.avif"
             alt="How DiaCare Works"
             className="
               rounded-2xl w-full max-w-xs sm:max-w-sm md:max-w-md 
