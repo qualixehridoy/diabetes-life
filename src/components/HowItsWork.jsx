@@ -13,7 +13,7 @@ const HowItsWork = () => {
       id="howitswork"
       className="
         py-16 sm:py-20 md:py-28 
-        bg-gradient-to-r from-white to-blue-100 
+        bg-white 
         w-full
       "
     >
@@ -52,7 +52,7 @@ const HowItsWork = () => {
         >
           <h2
             className="
-              font-Hanken font-bold text-black leading-tight mb-4
+              font-Hanken font-bold text-black leading-tight mb-4 
               text-[clamp(2.5rem,5vw,3.5rem)]
             "
           >
@@ -66,7 +66,7 @@ const HowItsWork = () => {
             className="
               text-sm sm:text-base md:text-lg 
               mb-6 sm:mb-8 max-w-lg 
-              leading-relaxed font-Hanken text-gray-700
+              leading-relaxed font-Hanken font-light text-gray-900
             "
           >
             If you have had a severe allergic reaction (anaphylaxis) or an
@@ -89,7 +89,7 @@ const HowItsWork = () => {
                 data-aos="fade-up"
                 data-aos-delay={`${300 + index * 100}`}
               >
-                <div className=" text-primary font-bold rounded-full w-8 h-8 sm:w-9 sm:h-9 md:w-9 md:h-9 flex items-center justify-center">
+                <div className=" text-primary rounded-full w-8 h-8 sm:w-9 sm:h-9 md:w-9 md:h-9 flex items-center justify-center">
                   <CircleCheckBig className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <p className="font-Hanken text-sm sm:text-base md:text-lg text-gray-800">

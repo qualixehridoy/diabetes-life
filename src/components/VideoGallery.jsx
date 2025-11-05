@@ -7,25 +7,25 @@ export default function VideoGallery() {
       id: 1,
       title: "Doctor Consulting a Patient",
       src: "/GalleryVideo1.mp4",
-      poster:"/GalleryVideo1Fallback.jpg"
+      poster: "/GalleryVideo1Fallback.jpg",
     },
     {
       id: 2,
       title: "Healthy Food for Wellness",
       src: "/GalleryVideo2.mp4",
-      poster:"/GalleryVideo2Fallback.jpg"
+      poster: "/GalleryVideo2Fallback.jpg",
     },
     {
       id: 3,
       title: "Healthcare Team Collaboration",
       src: "/GalleryVideo3.mp4",
-      poster:"/GalleryVideo3Fallback.jpg"
+      poster: "/GalleryVideo3Fallback.jpg",
     },
     {
       id: 4,
       title: "Fitness and Active Lifestyle",
       src: "/GalleryVideo4.mp4",
-      poster:"/GalleryVideo4Fallback.jpg"
+      poster: "/GalleryVideo4Fallback.jpg",
     },
   ];
 
@@ -34,9 +34,7 @@ export default function VideoGallery() {
 
   const openModal = (video) => {
     setSelectedVideo(video);
-    setTimeout(() => {
-      modalVideoRef.current?.play();
-    }, 200);
+    setTimeout(() => modalVideoRef.current?.play(), 200);
   };
 
   const closeModal = () => {
@@ -45,73 +43,73 @@ export default function VideoGallery() {
   };
 
   return (
-    <section className="w-full bg-gradient-to-b from-blue-50 via-blue-100 to-white py-20 px-4 sm:px-6 lg:px-12">
-      <div className="max-w-[1200px] mx-auto text-center space-y-10">
+    <section className="w-full bg-white py-20 px-4 sm:px-6 lg:px-12">
+      <div className="max-w-[1200px] mx-auto text-center space-y-12">
         {/* Heading */}
-        <div>
+        <div className="space-y-5">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-blue-900 font-Hanken leading-tight">
             Explore Our{" "}
             <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
               Medical Video Gallery
             </span>
           </h2>
-          <p className="mt-5 text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Discover inspiring medical stories, wellness tips, and preventive
-            health practices through these short videos.
+            health practices through our curated video collection.
           </p>
         </div>
 
         {/* Video Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 mt-10">
           {videos.map((video) => (
             <div
               key={video.id}
-              className="relative group rounded-2xl overflow-hidden bg-white border border-blue-100 shadow-sm hover:shadow-md transition-all duration-500 cursor-pointer"
               onClick={() => openModal(video)}
+              className="group relative rounded-3xl overflow-hidden bg-white border border-gray-100 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer"
             >
               {/* Video Thumbnail */}
               <div className="relative aspect-video overflow-hidden">
                 <video
                   src={video.src}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  preload="metadata"
+                  poster={video.poster}
                   muted
                   playsInline
+                  preload="metadata"
                   loading="lazy"
-                  poster={video.poster}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 ></video>
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-70 transition-opacity duration-500"></div>
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-50 group-hover:opacity-60 transition-opacity duration-500"></div>
 
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-primary/60 backdrop-blur-md rounded-full p-4 sm:p-5 transition-transform duration-300 hover:scale-110 shadow-sm">
+                  <div className="bg-blue-600/70 backdrop-blur-md rounded-full p-4 sm:p-5 transition-all duration-300 hover:scale-110 shadow-lg">
                     <Play className="text-white w-8 h-8 sm:w-9 sm:h-9" />
                   </div>
                 </div>
-              </div>
 
-              {/* Title */}
-              <div className="p-4 text-left">
-                <h3 className="text-[20px] font-semibold text-blue-800 truncate">
-                  {video.title}
-                </h3>
+                {/* Beautiful Title Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-5 py-4">
+                  <h3 className="text-white text-xl font-semibold tracking-tight drop-shadow-md transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+                    {video.title}
+                  </h3>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* === Video Modal === */}
+      {/* Video Modal */}
       {selectedVideo && (
         <div
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 transition-all duration-300"
           onClick={closeModal}
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 transition-all duration-300"
         >
           <div
-            className="relative w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] aspect-video bg-black rounded-2xl overflow-hidden shadow-xl transition-transform duration-300"
             onClick={(e) => e.stopPropagation()}
+            className="relative w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] aspect-video bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl overflow-hidden shadow-2xl"
           >
             {/* Close Button */}
             <button

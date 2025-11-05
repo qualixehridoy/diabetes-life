@@ -5,6 +5,8 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import Hero from './components/Hero'
 
+import './index.css'
+
 const HowItsWork = lazy(() => import('./components/HowItsWork'))
 const SpreadSection = lazy(() => import('./components/SpreadSection'))
 const VideoGallery = lazy(() => import('./components/VideoGallery'))

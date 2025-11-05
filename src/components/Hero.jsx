@@ -52,8 +52,8 @@ const Hero = () => {
       >
         <h1
           className="
-            font-Hanken font-extrabold mb-6 drop-shadow-lg leading-tight max-w-3xl
-            text-[clamp(1.8rem,6vw,4rem)]  /* Fluid, mobile-friendly heading */
+            font-Lato  mb-6 drop-shadow-lg leading-tight max-w-3xl
+            text-[clamp(1.6rem,6vw,4rem)]  /* Fluid, mobile-friendly heading */
           "
         >
           Know more and do more

@@ -1,4 +1,4 @@
-import { useEffect, useTransition } from "react";
+import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import HeroButton from "./Button";
@@ -16,12 +16,12 @@ export default function SpreadSection() {
   const facts = [
     "Provide a safe and private space for diabetes management and adequate storage for supplies.",
     "Provide access to food, water, toilet facilities, and breaks for people to attend medical needs.",
-    "Have a trained first aider and the necessary supplies to treat a diabetes-related emergency.",
     "Foster an inclusive environment free from fear and diabetes-related stigma.",
-    "Offer flexible working arrangements (e.g., part-time or remote work).",
     "Offer mental well-being support to employees.",
     "Make healthy food and snacks available in the workplace.",
     "Encourage physical activity through programs and incentives.",
+    "Have a trained first aider and the necessary supplies to treat a diabetes-related emergency.",
+    "Offer flexible working arrangements (e.g., part-time or remote work).",
     "Make information about diabetes available in the workplace.",
     "Organize diabetes screenings.",
   ];
@@ -36,16 +36,16 @@ export default function SpreadSection() {
   return (
     <section
       id="spread"
-      className="w-full bg-gradient-to-b from-blue-50 to-blue-100 py-10 sm:py-24 md:py-28 px-1 sm:px-6 md:px-10 flex justify-center"
+      className="w-full bg-linear-to-l from-blue-50 to-blue-100 py-10 sm:py-24 md:py-28 px-2 sm:px-6 md:px-10 flex justify-center"
     >
-      <div className="max-w-[1200px] w-full flex flex-col items-center text-center  sm:space-y-12">
+      <div className="max-w-[1200px] w-full flex flex-col items-center text-center sm:space-y-12">
         
         {/* === Heading Section === */}
         <div data-aos="fade-up" className="space-y-4">
           <h1 className="text-4xl sm:text-5xl md:text-[60px] font-extrabold font-Hanken leading-tight text-gray-900">
-            Spread the word about{" "} 
+            Spread the word about{" "}
             <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent animate-gradient-x">
-              Diabetes 
+              Diabetes
             </span>{" "}
             in November
           </h1>
@@ -76,18 +76,17 @@ export default function SpreadSection() {
           data-aos="fade-up"
           data-aos-delay="300"
         >
-          {/* Left Column: 1–5 */}
-          <div className="space-y-5">
+          {/* === Left Column: 1–5 === */}
+          <div className="space-y-4">
             {facts.slice(0, 5).map((fact, index) => (
               <div
                 key={index}
                 data-aos="fade-right"
                 data-aos-delay={index * 100}
-                className="flex items-center justify-center gap-4 bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1"
-                
+                className="flex items-center justify-start gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-500 min-h-[90px] sm:min-h-[100px]"
               >
                 <div
-                  className="font-bold rounded-full w-12 h-12 flex items-center justify-center text-lg shadow-sm shrink-0"
+                  className="font-bold rounded-full w-10 h-10 flex items-center justify-center text-base shadow-sm shrink-0"
                   style={{
                     backgroundColor: colorVars[index % colorVars.length],
                     color: "var(--color-secondary)",
@@ -95,24 +94,24 @@ export default function SpreadSection() {
                 >
                   {index + 1}
                 </div>
-                <p className="text-gray-700 text-base sm:text-lg font-medium leading-relaxed text-left">
+                <p className="text-gray-700 text-sm sm:text-base font-medium leading-relaxed text-left">
                   {fact}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* Right Column: 6–10 */}
-          <div className="space-y-5">
+          {/* === Right Column: 6–10 === */}
+          <div className="space-y-4">
             {facts.slice(5).map((fact, index) => (
               <div
                 key={index + 5}
                 data-aos="fade-left"
                 data-aos-delay={index * 100}
-                className="flex items-center gap-4 bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1"
+                className="flex items-center justify-start gap-4 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-500 min-h-[90px] sm:min-h-[100px]"
               >
                 <div
-                  className="font-bold rounded-full w-12 h-12 flex items-center justify-center text-lg shadow-sm shrink-0"
+                  className="font-bold rounded-full w-10 h-10 flex items-center justify-center text-base shadow-sm shrink-0"
                   style={{
                     backgroundColor:
                       colorVars[(index + 5) % colorVars.length],
@@ -121,7 +120,7 @@ export default function SpreadSection() {
                 >
                   {index + 6}
                 </div>
-                <p className="text-gray-700 text-base sm:text-lg font-medium leading-relaxed text-left">
+                <p className="text-gray-700 text-sm sm:text-base font-medium leading-relaxed text-left">
                   {fact}
                 </p>
               </div>
@@ -130,7 +129,7 @@ export default function SpreadSection() {
         </div>
 
         {/* === Call-to-Action Button === */}
-        <div data-aos="zoom-in" data-aos-delay="600" className="mt-16">
+        <div data-aos="zoom-in" data-aos-delay="600" className="mt-14">
           <HeroButton text="Join Our Movement" />
         </div>
       </div>
