@@ -22,7 +22,7 @@ const Hero = () => {
           muted
           playsInline
           
-          poster="/HeroBgFallback.jpg"
+          poster="/HeroBgFallback.avif"
         />
    
 
