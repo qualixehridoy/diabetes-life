@@ -14,14 +14,18 @@ function App() {
 
   return (
     <>
-    <Header />
-    <Hero />
-    <Suspense fallback={<LoadingSpinner />}>
-      <HowItsWork />
-      <SpreadSection />
-      <VideoGallery />
-    </Suspense>
-    <Footer />
+      <Header />
+      <Hero />
+      <Suspense fallback={<LoadingSpinner />}>
+        <HowItsWork />
+      </Suspense>
+      <Suspense fallback={<LoadingSpinner />}>
+        <SpreadSection />
+      </Suspense>
+      <Suspense fallback={<LoadingSpinner />}>
+        <VideoGallery />
+      </Suspense>
+      <Footer />
 
     </>
   )

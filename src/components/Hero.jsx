@@ -1,23 +1,42 @@
+import { useState, useEffect } from "react";
 import HeroButton from "./Button";
 import "./Hero.css";
 
 const Hero = () => {
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section
       id="hero"
       className="relative w-full h-screen flex items-center justify-start overflow-hidden"
     >
       {/* Background Video */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        src="/HeroBG.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        loading="lazy"
-        poster="/HeroBgFallback.jpg"
-      />
+      {isDesktop ? (
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/HeroBG.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          loading="lazy"
+          poster="/HeroBgFallback.jpg"
+        />
+      ) : (
+        <img
+          src="/HeroBgFallback.jpg"
+          className="absolute inset-0 w-full h-full object-cover"
+          alt="Background"
+        />
+      )}
 
       {/* Overlay for readability */}
       <div className="absolute inset-0 backdrop-blur-sm bg-black/20"></div>

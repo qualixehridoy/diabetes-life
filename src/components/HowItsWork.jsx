@@ -53,7 +53,7 @@ const HowItsWork = () => {
           <h2
             className="
               font-Hanken font-bold text-black leading-tight mb-4
-              text-[clamp(1.8rem,5vw,3.5rem)]
+              text-[clamp(2.5rem,5vw,3.5rem)]
             "
           >
             Diabetes and{" "}
@@ -80,7 +80,7 @@ const HowItsWork = () => {
               <div
                 key={index}
                 className="
-                  flex items-start gap-3 sm:gap-4 
+                  flex items-center gap-3 sm:gap-4 
                   bg-white rounded-2xl 
                   p-3 sm:p-4 md:p-5 
                   shadow-sm transition-all duration-500 
@@ -89,7 +89,7 @@ const HowItsWork = () => {
                 data-aos="fade-up"
                 data-aos-delay={`${300 + index * 100}`}
               >
-                <div className="bg-primary text-white font-bold rounded-full w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center">
+                <div className=" text-primary font-bold rounded-full w-8 h-8 sm:w-9 sm:h-9 md:w-9 md:h-9 flex items-center justify-center">
                   <CircleCheckBig className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <p className="font-Hanken text-sm sm:text-base md:text-lg text-gray-800">
@@ -100,7 +100,7 @@ const HowItsWork = () => {
           </div>
 
           {/* === CTA Button === */}
-          <div className="mt-8 sm:mt-10 flex justify-start text-sm md:text-[16px]">
+          <div className="mt-8 sm:mt-10 flex justify-start text-sm md:text-[10px] lg:text-[16px]">
             <HeroButton text="Is your workplace Diabetic Friendly?" />
           </div>
         </div>
