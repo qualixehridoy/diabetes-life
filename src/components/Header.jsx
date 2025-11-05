@@ -5,7 +5,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="absolute top-0 left-0 w-full bg-white/10 z-50  shadow-sm shadow-[#fffff3]">
+    <header className="absolute top-0 left-0 w-full bg-white/20 z-50">
       <nav className="max-w-[1200px] mx-auto flex  items-center justify-between px-6 py-3">
         {/* Logo */}
         <a href="#hero" className=" flex justify-center">

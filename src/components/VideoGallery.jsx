@@ -1,54 +1,43 @@
 import { useRef, useState } from "react";
-import { Play, Pause } from "lucide-react";
+import { Play, X } from "lucide-react";
 
 export default function VideoGallery() {
   const videos = [
     {
       id: 1,
       title: "Doctor Consulting a Patient",
-      src: "https://cdn.pixabay.com/video/2020/09/13/49815-458438877_large.mp4",
+      src: "/GalleryVideo1.mp4",
     },
     {
       id: 2,
       title: "Healthy Food for Wellness",
-      src: "https://cdn.pixabay.com/video/2019/11/26/29488-375947200_large.mp4",
+      src: "/GalleryVideo2.mp4",
     },
     {
       id: 3,
       title: "Healthcare Team Collaboration",
-      src: "https://cdn.pixabay.com/video/2016/02/29/2340-157269921_large.mp4",
+      src: "/GalleryVideo3.mp4",
     },
     {
       id: 4,
       title: "Fitness and Active Lifestyle",
-      src: "https://cdn.pixabay.com/video/2022/06/18/120679-721759754_large.mp4",
+      src: "/GalleryVideo4.mp4",
     },
   ];
 
-  const [playing, setPlaying] = useState({});
-  const videoRefs = useRef({});
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  const modalVideoRef = useRef(null);
 
-  const togglePlay = (id) => {
-    const currentVideo = videoRefs.current[id];
-    if (!currentVideo) return;
+  const openModal = (video) => {
+    setSelectedVideo(video);
+    setTimeout(() => {
+      modalVideoRef.current?.play();
+    }, 200);
+  };
 
-    // Pause all other videos
-    Object.keys(videoRefs.current).forEach((key) => {
-      const vid = videoRefs.current[key];
-      if (vid && key !== String(id)) {
-        vid.pause();
-        setPlaying((prev) => ({ ...prev, [key]: false }));
-      }
-    });
-
-    // Play or pause the selected one
-    if (currentVideo.paused) {
-      currentVideo.play();
-      setPlaying((prev) => ({ ...prev, [id]: true }));
-    } else {
-      currentVideo.pause();
-      setPlaying((prev) => ({ ...prev, [id]: false }));
-    }
+  const closeModal = () => {
+    modalVideoRef.current?.pause();
+    setSelectedVideo(null);
   };
 
   return (
@@ -73,34 +62,28 @@ export default function VideoGallery() {
           {videos.map((video) => (
             <div
               key={video.id}
-              className="relative group rounded-2xl overflow-hidden bg-white border border-blue-100 shadow-sm hover:shadow-md transition-all duration-500"
+              className="relative group rounded-2xl overflow-hidden bg-white border border-blue-100 shadow-sm hover:shadow-md transition-all duration-500 cursor-pointer"
+              onClick={() => openModal(video)}
             >
-              {/* Video */}
+              {/* Video Thumbnail */}
               <div className="relative aspect-video overflow-hidden">
                 <video
-                  ref={(el) => (videoRefs.current[video.id] = el)}
                   src={video.src}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   preload="metadata"
+                  muted
                   playsInline
                 ></video>
 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-70 transition-opacity duration-500"></div>
 
-                {/* Play/Pause Button */}
-                <button
-                  onClick={() => togglePlay(video.id)}
-                  className="absolute inset-0 flex items-center justify-center"
-                >
+                {/* Play Button */}
+                <div className="absolute inset-0 flex items-center justify-center">
                   <div className="bg-primary/60 backdrop-blur-md rounded-full p-4 sm:p-5 transition-transform duration-300 hover:scale-110 shadow-sm">
-                    {playing[video.id] ? (
-                      <Pause className="text-white w-8 h-8 sm:w-9 sm:h-9" />
-                    ) : (
-                      <Play className="text-white w-8 h-8 sm:w-9 sm:h-9" />
-                    )}
+                    <Play className="text-white w-8 h-8 sm:w-9 sm:h-9" />
                   </div>
-                </button>
+                </div>
               </div>
 
               {/* Title */}
@@ -113,6 +96,36 @@ export default function VideoGallery() {
           ))}
         </div>
       </div>
+
+      {/* === Video Modal === */}
+      {selectedVideo && (
+        <div
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 transition-all duration-300"
+          onClick={closeModal}
+        >
+          <div
+            className="relative w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] aspect-video bg-black rounded-2xl overflow-hidden shadow-xl transition-transform duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-3 right-3 bg-white/20 hover:bg-white/40 text-white rounded-full p-2 z-10 transition"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Video Player */}
+            <video
+              ref={modalVideoRef}
+              src={selectedVideo.src}
+              controls
+              autoPlay
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

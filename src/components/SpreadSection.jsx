@@ -36,9 +36,9 @@ export default function SpreadSection() {
   return (
     <section
       id="spread"
-      className="w-full bg-gradient-to-b from-blue-50 to-blue-100 py-20 sm:py-24 md:py-28 px-4 sm:px-6 md:px-10 flex justify-center"
+      className="w-full bg-gradient-to-b from-blue-50 to-blue-100 py-10 sm:py-24 md:py-28 px-1 sm:px-6 md:px-10 flex justify-center"
     >
-      <div className="max-w-[1200px] w-full flex flex-col items-center text-center space-y-10 sm:space-y-12">
+      <div className="max-w-[1200px] w-full flex flex-col items-center text-center  sm:space-y-12">
         
         {/* === Heading Section === */}
         <div data-aos="fade-up" className="space-y-4">
@@ -83,7 +83,7 @@ export default function SpreadSection() {
                 key={index}
                 data-aos="fade-right"
                 data-aos-delay={index * 100}
-                className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1"
+                className="flex items-center justify-center gap-4 bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1"
                 
               >
                 <div
@@ -109,7 +109,7 @@ export default function SpreadSection() {
                 key={index + 5}
                 data-aos="fade-left"
                 data-aos-delay={index * 100}
-                className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1"
+                className="flex items-center gap-4 bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1"
               >
                 <div
                   className="font-bold rounded-full w-12 h-12 flex items-center justify-center text-lg shadow-sm shrink-0"

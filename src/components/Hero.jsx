@@ -18,7 +18,7 @@ const Hero = () => {
       />
 
       {/* Overlay for readability */}
-      <div className="absolute inset-0 backdrop-blur-sm bg-black/40"></div>
+      <div className="absolute inset-0 backdrop-blur-sm bg-black/20"></div>
 
       {/* Content */}
       <div
